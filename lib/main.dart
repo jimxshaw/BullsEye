@@ -32,9 +32,7 @@ class _GamePageState extends State<GamePage> {
               ),
             ),
             TextButton(
-              onPressed: () {
-                print('Successful Hit!');
-              },
+              onPressed: printHello,
               child: const Text(
                 'Hit Me!',
                 style: TextStyle(color: Colors.green),
@@ -44,5 +42,9 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
     );
+  }
+
+  void printHello() {
+    print('Hello!');
   }
 }
