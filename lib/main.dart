@@ -5,7 +5,12 @@ void main() {
     MaterialApp(
       title: 'Bullseye',
       home: Scaffold(
-        appBar: AppBar(title: const Text('Bullseye')),
+        appBar: AppBar(
+          title: const Text('Bullseye'),
+        ),
+        body: const Center(
+          child: Text('Hello Flutter!'),
+        ),
       ),
     ),
   );
