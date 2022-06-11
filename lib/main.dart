@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       title: 'Bullseye',
       home: GamePage(),
     ),
@@ -17,6 +17,8 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
+  bool _alertIsVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +35,8 @@ class _GamePageState extends State<GamePage> {
             ),
             TextButton(
               onPressed: () {
-                print('Successful Hit!');
+                _alertIsVisible = true;
+                _showAlert(context);
               },
               child: const Text(
                 'Hit Me!',
@@ -44,5 +47,27 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
     );
+  }
+
+  void _showAlert(BuildContext context) {
+    var okButton = TextButton(
+      child: const Text('Great!'),
+      onPressed: () {
+        // Dismissed the popup alert.
+        Navigator.of(context).pop();
+        _alertIsVisible = false;
+      },
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Hello BullsEye'),
+            content: const Text('First popup!'),
+            actions: [okButton],
+            elevation: 5,
+          );
+        });
   }
 }
