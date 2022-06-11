@@ -17,6 +17,8 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
+  bool _alertIsVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,9 @@ class _GamePageState extends State<GamePage> {
               ),
             ),
             TextButton(
-              onPressed: printHello,
+              onPressed: () {
+                _alertIsVisible = true;
+              },
               child: const Text(
                 'Hit Me!',
                 style: TextStyle(color: Colors.green),
@@ -42,9 +46,5 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
     );
-  }
-
-  void printHello() {
-    print('Hello!');
   }
 }
